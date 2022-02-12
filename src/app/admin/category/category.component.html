@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="header">
+        <div clas="form-control " >
+            <!--search functionality -->
+            <h4 style="text-align: center; color: brown;">CATEGORY</h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button routerLink="/admin" class="btn btn-warning" >Home</button>
+            <br>
+            <br>
+            <input class="form-control w-5" type="text" placeholder="search text here"[(ngModel)]="filter" >
+            
+            <!-- {{filter}} -->
+        </div>
+    </div>
+    <br>
+    <table class="table table-bordered table-striped table-success w-5">
+        <thead>
+            <tr>
+                <th> Id</th>
+                <th>Category Name</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr Service *ngFor="let exp of expService.categories | filter: filter| paginate:{itemsPerPage:6,currentPage: page}">
+                <td>{{exp.CategoryId}}</td>
+                <td>{{exp.Categoryname}}</td>
+                <td>
+                    <!-- button -->
+                    <button class="btn btn-sm btn-outline-info" (click)="updateCategory(exp.CategoryId)">Edit</button>
+                    &nbsp;
+                    <button class="btn btn-sm btn-outline-danger" (click)="deleteCategory(exp.CategoryName)">Delete</button>
+                </td>
+                
+            </tr>
+
+        </tbody>
+    </table>
+    
+    </div> 
+    <div class="footer">
+        <!-- pagination -->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+
+
+

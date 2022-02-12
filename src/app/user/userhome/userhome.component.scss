@@ -1,0 +1,92 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	background-color: #f5f7fa;
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+}
+.container {
+	display: flex;
+}
+.side {
+	min-width: 320px;
+	height: 200px;
+	background-color: #fff;
+	height: 100%;
+	min-height: 100vh;
+}
+.content {
+	width: 100%;
+	display: flex;
+	padding: 20px 0;
+	align-items: center;
+	flex-direction: column;
+}
+.header {
+	background: linear-gradient(262deg, #6b6a6a, #6f7e73);
+	width: 100%;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	padding: 0 20px;
+	color: #fff;
+	font-size: 23px;
+}
+
+
+.messages {
+	padding: 2px 2px;
+
+}
+
+
+.container .card {
+	position: relative;
+	width: 380px;
+	height: 450px;
+}
+
+.card .user {
+	width: 380px;
+	height: 450px;
+	object-fit: cover;
+	border-radius: 10px;
+	box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
+}
+
+.card .user .profile {
+	position: absolute;
+	bottom: 0px;
+	left: 20px;
+}
+
+.card .user .name {
+	color: #fff;
+	font-size: 32px;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	text-shadow: 1px 1px 5px #444;
+}
+
+
+
+
+.card {
+	margin: 5px 0;
+	color: #fff;
+	color: #fff;
+	padding: 0 10px;
+	text-shadow: 1px 1px 5px rgb(68, 68, 68);
+}
+
+
+button {
+    background-color: #777e7a;
+    color: white;
+    padding: 14px 20px;
+
+    border: 2px;
+    cursor: pointer;
+    width: 100%;
+}

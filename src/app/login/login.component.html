@@ -1,0 +1,64 @@
+<!-- <h2 style="text-align: center; font-size: 200%; font-family: fantasy;">Dating App</h2> -->
+<div class="container border " style="width: 30em; margin-top: 3em; background-color: rgb(209, 229, 238);"><br>
+    <div class="" >
+        <h3 style="text-align: center;">Login Page</h3>
+        <hr>
+        <form [formGroup]="loginForm" (ngSubmit)="loginCredentials()" name="loginForm">
+            <!-- User Name control -->
+            <div class="form-group"> 
+                <p>
+                    <label for="LoginId">LoginId</label>
+                    <input type="text" placeholder="Enter LoginId" name=LoginId
+                    formControlName ="LoginId" class="form-control" minlength="3" required
+                    [ngClass]="{'is-invalid':formControls.LoginId.touched && formControls.LoginId.invalid}"
+                    autocomplete="off">
+                </p>
+            </div>
+
+            <!-- username validation -->
+             <div *ngIf="isSubmitted && formControls.LoginId.errors">
+                <div *ngIf="formControls.LoginId.errors"
+                style="color: red; text-align: left;">
+                LoginId is required
+
+                </div> 
+
+            </div>
+
+            <!-- Passwordcontrol -->
+            <div> 
+                <p>
+                    <label for="Password" class="form-label">Password</label>
+                    <input type="Password" placeholder="Enter password" name="Password"
+                    formControlName ="Password" class="form-control"minlength="3" required
+                    [ngClass]="{'is-invalid':formControls.Password.touched && formControls.Password.invalid}">
+                </p>
+            </div>
+
+            <!-- username validation -->
+            <div *ngIf="isSubmitted && formControls.Password.errors">
+                <div *ngIf="formControls.Password.errors"
+                style="color: red; text-align: left;">
+                    password is required
+
+                </div>
+
+            </div><br>
+
+            <!-- button -->
+            <div>
+                <button class="form-control btn btn-primary" style="margin-bottom: .6em;">Login</button>
+            </div>
+
+            <!-- errors -->
+            <div *ngIf="error"style="color: red; text-align: left;">
+            {{error}}
+            </div>
+            Don't have a account?<a href="#"routerLink="/register">Register Here</a>
+
+
+        </form>
+    </div>
+</div>
+
+

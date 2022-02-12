@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="header">
+        <div clas="form-control " >
+            <!--search functionality -->
+            <br>
+            <br>
+            <h4 style="text-align: center; color: brown;">List Expenses for previous 2 months </h4>
+            <br>
+            <button routerLink="/admin" class="btn btn-warning" >Home</button>
+            <br>
+            <br>
+            <input class="form-control" type="text" placeholder="search text here"[(ngModel)]="filter" >
+            <!-- {{filter}} -->
+        </div>
+    </div>
+    <br>
+    <table class="table table-bordered table-striped table-warning">
+        <thead>
+            <tr>
+                <th>Expense Id</th>
+                <th>Item Name</th>
+                <th>Category Name</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr Service *ngFor="let exp of expensetrackerService.expenses | filter: filter| paginate:{itemsPerPage: 4,currentPage: page}">
+                <td>{{exp.Expenseid}}</td>
+                <td>{{exp.Itemname}}</td>
+                <td>{{exp.Categoryname}}</td>
+                <td>{{exp.Expensedate | date:"dd-MMM-yyy"}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+    
+    </div> 
+    <div class="footer">
+        <!-- pagination -->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+
+
